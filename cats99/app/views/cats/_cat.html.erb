@@ -1,0 +1,23 @@
+<% if action == 'show'%>
+    <% url = cats_url()%>
+    <% text = "Back to Index" %>
+<% else%>
+    <% url = cat_url(cat)%>
+    <% text = "Show more info" %>
+<% end %>
+<table>
+    <thead>
+        <tr>
+            <th colspan="4"><%=cat.name%></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%=cat.age%></td>
+            <td><%=cat.color%></td>
+            <td><%=cat.sex%></td>
+            <td><%=cat.description%></td>
+        </tr>
+    </tbody>
+</table>
+<a href=<%=url%>> <%= text%> </a>

@@ -1,0 +1,52 @@
+<%if action == 'create'%>
+    <% function = "Create" %>
+    <% redir = cats_url %>
+
+<%else%>
+    <% function = "Edit #{cat.name}" %>
+    <% redir = cat_url(cat) %>
+<%end%>
+
+<h1><%=function%> </h1>
+<form action="<%=redir%>" method='POST'>
+    <%if action =='update'%>
+        <input type= "hidden" name="_method" value="PATCH">
+    <%end%>
+    <label> Name:
+        <input type="text"id = 'name' name='cat[name]'value='<%=cat.name%>'>
+    </label>
+    <br>
+    <label> Sex: 
+        <input type="radio"id = 'male' name='cat[sex]'value='M'checked = "<%= cat.sex == "M"%>>
+        <label for="male">M</label>
+        <input type="radio"id = 'female' name='cat[sex]'value='F'checked = "<%= cat.sex == "F"%>">
+        <label for="female" >F</label>
+    </label>
+    
+    <br>
+    <label> Color:
+        <select id='color'name='cat[color]'value='<%=cat.color%>'>
+            <option value="" disabled>Select Color</option>
+            <option value="Orange">Orange</option>
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Gray">Gray</option>
+        </select>
+    </label>
+
+    <br>
+
+    <label for="birthday"> Birthday:
+    <input style="display:inline-block" id="birthday" type="date" name="cat[birth_date]" value="<%=cat.birth_date%>">
+    <br>
+
+    <label for="">Description
+        <textarea name='cat[description]'><%=cat.description%></textarea>
+    </label>
+
+    <br>
+
+    <button>
+        Finish
+    </button>
+</form>

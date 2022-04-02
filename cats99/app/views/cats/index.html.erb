@@ -1,0 +1,6 @@
+<a href="<%=new_cat_url%>">Create New Cat</a>
+
+<% @cats.each do |cat| %>
+    <%= render "cat", cat: cat, action: 'index'%>
+<% end%>
+
